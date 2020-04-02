@@ -2,8 +2,9 @@
     import { goBack } from 'svelte-native'
     import {group, theGame} from '../stores.js'
 
+    console.log('welcome to gamePage')
     //makes rules contain all the rules of the game.
-    let rules = theGame.fields.rules
+    let rules = $theGame.fields.rules
     let i = 0
     let e = 0
 
@@ -15,7 +16,7 @@
 
     //If random= true, makes questions Random, if not index++
     const next = () =>{
-        if (theGame.fields.random) {
+        if ($theGame.fields.random) {
             i = Math.floor(rules.length * Math.random())
             player()
         } else {
@@ -31,20 +32,21 @@
 
 </script>
 
-
-<page class='bg-primary'>
-    <actionBar title='{theGame.fields.name}'/>
-    <cardView elevation='40' margin='50' >
-        <flexboxLayout class='flex-centered'>
-        {#if theGame.fields.useName}
-            <label class='h2' text='{group[e]}' />
-        {/if}
-            <label class='text-center' text='{rules[i]}' textWrap={true} />
-            <button text='next' on:tap={next} />
-            <button class='end' text='end' on:tap={goBack} />
-        </flexboxLayout>
-    </cardView>
-</page>
+<frame>
+    <page class='bg-primary'>
+        <actionBar title='{theGame.fields.name}'/>
+        <cardView elevation='40' margin='50' >
+            <flexboxLayout class='flex-centered'>
+                {#if $theGame.fields.useName}
+                    <label class='h2' text='{group[e]}' />
+                {/if}
+                <label class='text-center' text='{rules[i]}' textWrap={true} />
+                <button text='next' on:tap={next} />
+                <button class='end' text='end' on:tap={goBack} />
+            </flexboxLayout>
+        </cardView>
+    </page>
+</frame>
 
 <style>
     .end{

@@ -22,26 +22,35 @@
         .catch(error => consolelog('####ERROR: ' + error))
     }
     getGames()
+
+    const prepareGame = async (game) =>{
+        console.log('Preparing...')
+        $theGame = []
+        await theGame.set(game)
+        goToGame()
+    }
     
     //opens game page
     const goToGame = () => {
+        console.log('###')
         navigate({
             page:Game
         })
     }
 
-    $: console.log($theGame)
 </script>
 
 <flexboxLayout class='flex-centered purple'>
     <label class='h1 text-center white' text='Your games' />
         {#each games as game}
-             <cardView margin='32' elevation='40'>
-                <label class='h2' text={game.fields.name}/>
-                <label class='body' text={game.fields.description}/>
-                <!--removes any prior games in theGame, then adds game to theGame. -->
-                <button text='Play' on:tap={() => {$theGame=[]; $theGame = [...$theGame, game]; goToGame();}}/>
-            </cardView>
+         
+                <stackLayout >
+                    <label class='h2' text={game.fields.name}/>
+                    <label class='body' text={game.fields.description}/>
+                    <!--removes any prior games in theGame, then adds game to theGame. -->
+                    <button text='Play' on:tap={() => prepareGame(game)}/>
+                </stackLayout>
+
         {:else}
             <activityIndicator busy={true} />
         {/each}
