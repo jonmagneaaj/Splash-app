@@ -2,7 +2,7 @@
     import { goBack } from 'svelte-native'
     import {group, theGame} from '../stores.js'
 
-    console.log('welcome to gamePage')
+
     //makes rules contain all the rules of the game.
     let rules = $theGame.fields.rules
     let i = 0
@@ -10,7 +10,7 @@
 
     //Random player
     const player = () =>{
-        e = Math.floor(group.length * Math.random())
+        e = Math.floor($group.length * Math.random())
     }
     player()
 
@@ -20,7 +20,7 @@
             i = Math.floor(rules.length * Math.random())
             player()
         } else {
-            if (i < rules.length) {
+            if (i > rules.length) {
                 i = 0
                 player()
             } else {
@@ -32,28 +32,59 @@
 
 </script>
 
-<frame>
-    <page class='bg-primary'>
-        <actionBar title='{theGame.fields.name}'/>
-        <cardView elevation='40' margin='50' >
-            <flexboxLayout class='flex-centered'>
+<page class='purple'>
+        <gridLayout rows='*, 200, *'>
+        <label row='0' text='{$theGame.fields.name}' class='h1 white flex-centered' textAlignment='center' textWrap='true'/>
+        <stackLayout row='1'>
+            <flexboxLayout class='flex-centered center'>
                 {#if $theGame.fields.useName}
-                    <label class='h2' text='{group[e]}' />
+                    <label class='h1 pinkText' textWrap='true' textAlignment='center' width='90%' text='{$group[e]}' />
                 {/if}
-                <label class='text-center' text='{rules[i]}' textWrap={true} />
-                <button text='next' on:tap={next} />
-                <button class='end' text='end' on:tap={goBack} />
+                <label class='h2 white' text='{rules[i]}' textWrap='true' width='90%' textAlignment='center'/>
             </flexboxLayout>
-        </cardView>
-    </page>
-</frame>
+        </stackLayout>
+        <stackLayout row='2'>
+            <button text='Neste' class='btn' on:tap={next} />
+            <button class='end' text='Ferdig' on:tap={goBack} />
+        </stackLayout>
+    </gridLayout>
+ </page>
 
 <style>
     .end{
-        border: none;
-        color: white;
-        text-align: center;
-        appearance: none;
-        border-radius: 2rem;
+        background-color: transparent;
+        border: 2px solid #EB00C7;
+        color: #EB00C7;
+        width: 70rem;
+        border-radius: 20px;
     }
+    
+    .btn{
+        background-color: #EB00C7;
+        color: white;
+        width: 70rem;
+        border-radius: 20px;
+    }
+
+    .purple{
+        background-color: rgb(1, 72, 165);
+    }
+
+    .white{
+        color: white;
+        margin-bottom: 40rem;
+    }
+
+    .center{
+        justify-content: center;
+        align-content: center;
+    }
+
+    .h1{
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+}
+
+
+
 </style>

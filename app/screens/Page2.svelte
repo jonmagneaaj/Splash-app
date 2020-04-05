@@ -4,6 +4,12 @@
     import {theGame} from '../stores.js'
     import Game from '../pages/Game.svelte'
 
+    import { registerNativeViewElement } from 'svelte-native/dom'
+ 
+    registerNativeViewElement("cardView", () => 
+        require("@nstudio/nativescript-cardview").CardView
+    )
+
     let games = []
 
     // gets firestore URL
@@ -17,14 +23,12 @@
             .then(json => FirestoreParser(json))
                 .then(parsed => {
                     games = parsed.documents
-                    console.log(games)
                 })
         .catch(error => consolelog('####ERROR: ' + error))
     }
     getGames()
 
     const prepareGame = async (game) =>{
-        console.log('Preparing...')
         $theGame = []
         await theGame.set(game)
         goToGame()
@@ -32,7 +36,6 @@
     
     //opens game page
     const goToGame = () => {
-        console.log('###')
         navigate({
             page:Game
         })
@@ -40,27 +43,52 @@
 
 </script>
 
-<flexboxLayout class='flex-centered purple'>
-    <label class='h1 text-center white' text='Your games' />
-        {#each games as game}
-         
-                <stackLayout >
-                    <label class='h2' text={game.fields.name}/>
-                    <label class='body' text={game.fields.description}/>
-                    <!--removes any prior games in theGame, then adds game to theGame. -->
-                    <button text='Play' on:tap={() => prepareGame(game)}/>
-                </stackLayout>
-
-        {:else}
-            <activityIndicator busy={true} />
-        {/each}
-</flexboxLayout>
+<gridLayout rows='80, *' class='flex-centered'>
+    <label row='0' class='h1 text-center  white' text='Dine spill' />
+        <scrollView row='1' class=''>
+            <stackLayout>
+                {#each games as game}
+                <stackLayout class='box' flexDirection='row'>
+                        <label class='h2 blackText' textWrap='true' textAlignment='center' text={game.fields.name}/>
+                        <label class='blackText' textWrap='true' textAlignment='center' text={game.fields.description}/>
+                        <!--removes any prior games in theGame, then adds game to theGame. -->
+                        <button text='Spill' class='btn pink' on:tap={() => prepareGame(game)}/>
+                    </stackLayout>
+                {:else}
+                    <activityIndicator busy={true} />
+                {/each}
+            </stackLayout>
+        </scrollView>
+</gridLayout>
 
 <style>
-    .purple{
-        background-color: purple;
-    }
     .white{
         color: white;
     }
+
+    .box{
+        background-color: white;
+        margin: 30px;
+        border-radius: 20px;
+        width: 500rem;
+        padding: 5rem;
+    }
+
+    .btn{
+        color: white;
+        width: 70rem;
+        border-radius: 20px;
+        margin-top: 20rem;
+    }
+
+    .h1{
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bold;
+}
+
+ .h2{
+    font-family: 'kalam', cursive;
+    font-weight: bold;
+}
+
 </style>
