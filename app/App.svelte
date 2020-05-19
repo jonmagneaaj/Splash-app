@@ -1,46 +1,41 @@
 <script>
-    import Page1 from './screens/Page1.svelte'
-    import Page2 from './screens/Page2.svelte'
+    import Spillere from './screens/Spillere.svelte'
+    import Spill from './screens/Spill.svelte'
 
-    let selectedTab = 0
+	let selectedTab = 0
+	let active = false
 
 </script>
 
-<page actionBarHidden={true} class='purple'>
-   	<tabs bind:selectedIndex={selectedTab} tabsPosition='bottom'>
-		<tabStrip class='white center'>
-			<tabStripItem >
-				<label text="Spillere" highlightColor='white'/>
+<page actionBarHidden={true} class='greyb'>
+   	<tabs bind:selectedIndex={selectedTab} tabsPosition='bottom' >
+		<tabStrip class='center greyb'>
+			<tabStripItem>
+				<label text="Spillere" class='h2 white one whiteb' highlightColor='white'/>
 			</tabStripItem>
-			<tabStripItem >
-				<label text="Spill" highlightColor='white'/>
+			<tabStripItem class:active>
+				<label text="Spill" class='h2 white two whiteb' highlightColor='white'/>
 			</tabStripItem>
 		</tabStrip>
 
-		<tabContentItem class='yellow'>
-				<Page1 bind:selectedTab={selectedTab} />
+		<tabContentItem class='greyb'>
+				<Spillere bind:selectedTab={selectedTab} />
 		</tabContentItem>
 
-		<tabContentItem class='green'>
-				<Page2/>
+		<tabContentItem class='greyb'>
+				<Spill/>
 		</tabContentItem>
 	</tabs>
 </page>
 
 <style>
-	
-	.white{
+	TabStrip {
+		font-size: 20;
 		color: white;
-		font-weight: bold;
-	}
-	.center{
-		display: flex;
-		justify-content: center;
-		background-color: transparent;
-	}
+	}	
 
-	TabStripItem.tabstripitem-active:active {
-    	font-weight: 800;
-	} 
-
+	TabStripItem {
+		highlight-color: white;
+		font-size: bold;
+	}	
 </style>

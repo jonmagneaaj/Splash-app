@@ -17,49 +17,164 @@ The imported CSS rules must precede all other types of rules.
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    justify-items: center;
     padding:24;
 }
+ app{
+     background-color: rgb(44,44,44);
+ }
 
-page{
-    background-color: #02142B;
-}
+ /*TEXT STYLES*/
 
 h1, .h1{
-    font-family: 'Permanent-Marker', cursive;
+    font-size: 25;
+    font-family: 'IBM Plex Mono', monospace;
     font-weight: bold;
 }
 
 h2, .h2{
-    font-family: 'kalam', cursive;
+    font-size: 20;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+h3, .h3{
+    font-size: 13;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+p, .p{
+    font-size: 12;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+/*Center things*/
+.center{
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.bold{
     font-weight: bold;
 }
 
+.right{
+    text-align: right;
+    align-self: flex-end;
+}
 
-.yellow{
+/* Adds margin beneath*/
+
+.margin-under{
+    margin-bottom: 20;
+}
+
+/*BUTTONS*/
+.ubtn{
+    background-color: transparent;
+}
+
+.btn{
+    height: 50;
+	width:125;
+    border-radius: 20;
+}
+
+.icon{
+    height: 30;
+}
+
+/* ICONS */
+
+.cross{
+    height: 15;
+}
+
+/*COLOURS*/
+
+/* Yellow colors*/
+.yellowb{
     background-color: rgb(255, 219, 59);
+}
+.yellow{
+    color: rgb(255, 219, 59);
+}
+
+/*Green colors*/
+
+.greenb{
+    background-color: rgb(73, 174, 120);
 }
 
 .green{
-    background-color: rgb(85, 207, 37);
+    color: rgb(73, 174, 120);
 }
 
+
+ /*Grey colors*/
+.greyb{
+    background-color: rgb(44,44,44)
+}
+.grey{
+    color: rgb(44,44,44)
+}
+
+/*White colors*/
+.white{
+    color: rgb(255,255,255);
+}
+
+.whiteb{
+    background-color: rgb(255,255,255);
+}
+
+.whiteo{
+    border: 2 solid rgb(255,255,255)
+}
+
+/*red colors*/
 .red{
-    background-color: rgb(235, 55, 55);
+    color: rgb(235, 55, 55);
 }   
+.redb{
+    background-color: rgb(235, 55, 55);
+}
+
+/*Orange colors*/
+
+.orange{
+    color: rgb(237, 117, 12)
+}
+.orangeb{
+    background-color: rgb(237, 117, 12)
+}
+
+/* Pink colors */
+.pinkb{
+    background-color: rgb(171, 46, 152);
+}
 
 .pink{
-    background-color: #EB00C7;
+    color: rgb(171, 46, 152);
 }
 
-.pinkText{
-    color: #EB00C7;
+/* Blue colors */
+.blue{
+    color: rgb(30, 92, 172);
+}
+
+.blueb{
+    background-color: rgb(30, 92, 172);
 }
 
 .blackText{
     color: rgb(28, 28, 29);
 }
 
-title{
-    font-family: 'Kalam','Permanent Marker', cursive;
-}
 
