@@ -13,7 +13,7 @@
 
     //active like radio
 	let dislike = false;
-	let care = true;
+	let care = false;
 	let like = false;
 
 	const like1 = () =>{
@@ -42,11 +42,11 @@
     
     const likeness = () => {
 		if (dislike){
-			whatLike = 'Liker den ikke'
+			whatLike = '1'
 		}else if (care){
-			whatLike = 'Helt greit'
+			whatLike = '2'
 		}else if(like){
-			whatLike = 'Liker den godt'
+			whatLike = '3'
 		}
     }
     
@@ -140,9 +140,9 @@
 				<!--Text under like buttons-->
 				<gridLayout row='2' columns='*,*,*' class='center'>
                     {#if dislike}
-					    <label col='0' text='liker ikke' class='h3 grey bold'/>
+					    <label col='0' text='ugh' class='h3 grey bold'/>
                     {:else}
-                        <label col='0' text='liker ikke' class='h3 grey'/>
+                        <label col='0' text='ugh' class='h3 grey'/>
                     {/if}
                     {#if care}
 					    <label col='1' text='helt ok' class='h3 grey bold'/>
@@ -150,9 +150,9 @@
                         <label col='1' text='helt ok' class='h3 grey'/>
                     {/if}
                     {#if like}
-					    <label col='2' text='liker godt' class='h3 grey bold'/>
+					    <label col='2' text='kult' class='h3 grey bold'/>
                     {:else}
-                        <label col='2' text='liker godt' class='h3 grey'/>
+                        <label col='2' text='kult' class='h3 grey'/>
                     {/if}
 				</gridLayout>
 			</gridLayout>
@@ -165,14 +165,14 @@
 
 <style>
 	.main{
-		width: 300;
+		width: 320;
 		height: 500;
 		border-radius: 20;
     }
 
     .box{
 		padding: 1;
-		width: 250;
+		width: 300;
 		margin: 0 auto;
     }
     

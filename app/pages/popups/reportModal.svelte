@@ -51,7 +51,7 @@
 </script>
 
 <stackLayout class='main redb whiteo'>
-    <gridLayout rows='30,30,80,*,130,100' class='box'>
+    <gridLayout rows='30,auto,80,*,130,100' class='box'>
         <stackLayout row='0'>
 		</stackLayout>
         <!--Title-->
@@ -88,7 +88,7 @@
 
 <style>
 	.main{
-		width: 300;
+		width: 320;
 		height: 500;
 		border-radius: 20;
     }

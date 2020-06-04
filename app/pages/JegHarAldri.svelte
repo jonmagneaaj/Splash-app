@@ -74,7 +74,7 @@
 </script>
 
 <page class='{backColor}'>
-    <gridLayout rows='200, *,  100'>
+    <gridLayout rows='100, *, 100, 50'>
         <!--Title of the game-->
         <label row='0' text='{$title}' class='h1 {frontColor} flex-centered' textAlignment='center' textWrap='true'/>
         <stackLayout row='1'>
@@ -110,7 +110,9 @@
             {:else}
                 <button text='Neste' class='btn white {backColor2} {buttonColor}' on:tap={next} />
             {/if}
-                <button text='Ferdig'  class='ubtn {frontColor}' on:tap={leave} />
+        </stackLayout>
+        <stackLayout row='3'>
+                <button text='Ferdig'  class='ubtn {frontColor}' on:tap={leave} android:stateListAnimator="@null"/>
         </stackLayout>
     </gridLayout>
  </page>

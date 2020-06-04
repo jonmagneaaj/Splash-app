@@ -1,5 +1,6 @@
 <script>
     import { navigate, showModal }  from 'svelte-native'
+
     //Games
     import Game1 from '../pages/DrikkeTuren.svelte'
     import Game2 from '../pages/JegHarAldri.svelte'
@@ -36,7 +37,7 @@
     const Drikketuren = () =>{
         $color = 'green'
         $bgcolor = 'greenb'
-        $text = 'Gå igjennom påstandene vist på skjermen, og gi ut slurker til den som påstanden passer. Mobilens eier starter, mens den som mottar forsetter leken, osv.'
+        $text = 'Gå igjennom påstandene vist på skjermen, og gi ut passende straff til den påstanden passer best. Gå til neste påstand ved å trykke på neste!.  Mobilens eier starter, mens den som mottar forsetter leken, osv.'
         $title = 'Drikketuren'
         $grad = 2
         $gameChoice = Game1
@@ -50,7 +51,7 @@
     const JegHarAldri = () =>{
         $color = 'pink'
         $bgcolor = 'pinkb'
-        $text = 'Gå igjennom påstandene som kommer opp på skjermen, og si de høyt. Om en har gjort en påstand som blir nevnt, så skal en ta en slurk!'
+        $text = 'Gå igjennom påstandene som kommer opp på skjermen, og si de høyt. Om en har gjort en påstand som blir nevnt, så må en ta en passende straff! Gå videre til neste påstand ved å trykke på "neste"'
         $title = 'Jeg har aldri'
         $grad = 3
         $gameChoice = Game2
@@ -64,7 +65,7 @@
     const SplashFest = () =>{
         $color = 'blue'
         $bgcolor = 'blueb'
-        $text = 'Få oppgaver, svar på spørsmål og spill med! Splash fest sikrer en god start på vorset. Velg ut en som skal lese opp reglene, det er viktig at alle gir denne personen sin fulle oppmerksomhet!'
+        $text = 'Få oppgaver, svar på spørsmål og spill med! Splash fest sikrer en god start på vorset. Velg ut en som skal lese opp reglene, det er viktig at alle gir denne personen sin fulle oppmerksomhet! Bytt påstander ved å trykke på "neste"'
         $title = 'Splash fest'
         $grad = 1
         $gameChoice = Game3
@@ -107,17 +108,17 @@
     <stackLayout row='2' class='games'>
         <scrollView orientation="vertical">
             <gridLayout rows='auto, auto, auto'>
+                <!--Splash fest-->
+                <stackLayout row='0' class='box blueb' on:tap='{SplashFest}'>
+                    <label class='h2 white bold center game-title' textWrap='true' text='Splash fest'/>
+                </stackLayout>
                 <!--Drikketuren-->
-                <stackLayout row='0' class='box greenb' on:tap='{Drikketuren}'>
+                <stackLayout row='1' class='box greenb' on:tap='{Drikketuren}'>
                     <label class='h2 white bold center game-title' textWrap='true' text='Drikketuren!'/>
                 </stackLayout>
                 <!--Jeg har aldri-->
-                <stackLayout row='1' class='box pinkb' on:tap='{JegHarAldri}'>
+                <stackLayout row='2' class='box pinkb' on:tap='{JegHarAldri}'>
                     <label class='h2 white bold center game-title' textWrap='true' text='Jeg har aldri'/>
-                </stackLayout>
-                <!--Splash fest-->
-                <stackLayout row='2' class='box blueb' on:tap='{SplashFest}'>
-                    <label class='h2 white bold center game-title' textWrap='true' text='Splash fest'/>
                 </stackLayout>
             </gridLayout>
         </scrollView>

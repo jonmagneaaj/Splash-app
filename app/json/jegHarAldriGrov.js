@@ -84,7 +84,7 @@ export const jegHarAldriGrovRules= [
     'Jeg har aldri kommet tidlig når jeg har hatt sex',
     'Jeg har aldri onanert til facebook bilder an noen',
     'Jeg har aldri stalket noen på sosiale medier',
-    'Jeg har aldri kuttet meg selv',
+    'Jeg har aldri pisket meg selv',
     'Jeg har aldri puttet sperm i sjampoflasken til en venn',
     'Jeg har aldri ødelagt doen til noen',
     'Jeg har aldri dopet drinken til noen',

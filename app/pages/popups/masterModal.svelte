@@ -55,7 +55,7 @@
 </script>
 
 	<stackLayout class='{$bgcolor} main'>
-		<gridLayout rows='20,50,200,150,100' class='box'>
+		<gridLayout rows='20,50,200,150,auto' class='box'>
 			<!--empty room-->
 			<stackLayout row='0'>
 			</stackLayout>
@@ -172,7 +172,7 @@
 		margin: 0 auto;
 	}
 	.main{
-		width: 300;
+		width: 320;
 		height: 500;
 		border-radius: 20;
 	}

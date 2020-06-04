@@ -2,24 +2,57 @@
     import { goBack, showModal } from 'svelte-native'
     import {text, title, diff, reportRule, group} from '../stores.js'
     import {shuffle} from '../scripts/shuffle.js'
+    //Games / rules etc.
     import {splashFestMild} from '../json/splashFest.js'
+    import {splashFestGames} from '../json/splashFestGames.js'
 
     //modals
     import reportModal from '../pages/popups/reportModal.svelte'
     
+    //Array with rules from json
     let arules = [...splashFestMild.rules]
     let srules = ''
 
+    //Array with games from json
+    let krules = [...splashFestGames.rules]
+    let grules = ''
+
     const startGame = () =>{
+        grules = ''
         srules = ''
         //Contains all the rules of the game.
+        grules = shuffle(krules)
         srules = shuffle(arules)
         console.log('####' + srules.length +'####')
+        console.log('####' + grules.length +'####')
+        console.log(grules[1])
 
         //Add games within game here:
+        let baseNumber = 0
+        let randomNumber 
+        let randomNumberB
+
+        if (baseNumber <= srules.length+10){
+            for (let i = 0; i < grules.length; i++) {
+
+                //Creates a random number, based on what number and adds that to baseNumber
+                //Adds the first rule of the random game
+                randomNumber = baseNumber + Math.floor((Math.random() * 7) + 1);
+                srules.splice(randomNumber,0,grules[i].game[0])
+
+                //Adds the second rule of the game, at a random distance from first. but minimum 3
+                randomNumberB = randomNumber + Math.floor((Math.random() * 7) + 3);
+                srules.splice(randomNumberB,0,grules[i].game[1])
+
+                //Basenumber keeps RandomNumberB`s value
+                baseNumber = randomNumberB
+                console.log('#### Basenumber: ' +baseNumber+' ####')
+            }
+        }
         
     }
     startGame()
+    console.log('### number of questions: ' + srules.length)
 
     // Variable colors
     let frontColor='white'
@@ -69,8 +102,19 @@
     styleChange()
 
     let players = [...$group]
-    let k = players.length
     let p = 0
+
+    let gamePlayers = [...$group]
+    //The player in the array
+    let gpl = 0
+    //At what stage the game is in
+    let pg = 0
+
+    //Random player in MiniGame
+    const miniGamePlayers = () =>{
+        shuffle(gamePlayers)
+    }
+    miniGamePlayers()
 
     //Random player
     const player = () =>{
@@ -80,28 +124,47 @@
    
     //Goes to next rule. If through all rules, start gameOver sequence
     const next = () =>{
-        //Only go thrugh name array if name is displayed
-            if(srules[i].navn==true){
-                p++
-            }
+        //Only go thrugh name array if name is displayed and not rule=0
+        if(srules[i].navn==true&&srules[i].grad==1||srules[i].grad==2||srules[i].grad==3||srules[i].grad==4){
+            p++
+        }
         i++
+
         // If i is bigger than the length of rules, run gameOver
         if (i >= srules.length){
             i = 0
             gameOver()
         }else{
             //Randomizes players if all players have played
-            if(k <= p){
+            if(players.length <= p){
                 player()
                 p= 0
             }
             //changes color based on difficulity
             styleChange()
-            console.log('#### Index: '+i + ' Array Length: '+srules.length + ' Player: ' +players[p])
+
+            //Runs minigame rules, if grad=0. Uses own player array. 
+            if(srules[i].grad==0){
+                // When game is at end, go to next player, and restart counter.
+                if(pg >= 2){
+                    pg=0
+
+                    //if all players have played, shuffle player array, and start over
+                    if((gamePlayers.length-1) <= gpl){
+                        gpl = 0
+                        miniGamePlayers()
+                        console.log('## randomizes players:' + gpl)
+                    } else{
+                        gpl++
+                    }
+                    console.log('## new player:' + gpl)
+                }
+                //holds track of if on start of game, or end. 
+                pg++
+                console.log('## add pg:' + pg)
+            }
         }
     }
-    console.log('#### Index: '+i + ' Array Length: '+srules.length + ' Player: ' +players[p])
-
 
     // Starts when players have gone trough all of the game
     const gameOver= () =>{
@@ -115,6 +178,7 @@
         i = 0
     }
 
+    //return to game select screen
     const leave = () =>{
         goBack()
     }
@@ -129,7 +193,7 @@
 </script>
 
 <page class='{backColor}'>
-    <gridLayout rows='200,*, 100'>
+    <gridLayout rows='100,*, 100,50'>
         <!--Title of the game-->
         <label row='0' text='{$title}' class='h1 {frontColor} flex-centered' textAlignment='center' textWrap='true'/>
         <stackLayout row='1'>
@@ -139,8 +203,12 @@
                     <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='GRATULERER!' />
                 {:else}
                     <!--Player name if true-->
-                    {#if srules[i].navn==true}
+                    {#if srules[i].navn==true&&srules[i].grad==1||srules[i].grad==2||srules[i].grad==3||srules[i].grad==4}
                         <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='{players[p]}' />
+                    {:else if srules[i].grad==0}
+                        <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='{gamePlayers[gpl]}' />
+                    {:else}
+                        <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='ALLE' />
                     {/if}
                 {/if}
                 <!--Question that comes up-->
@@ -179,7 +247,9 @@
             {:else}
                 <button text='Neste' class='btn {backColor2} {buttonColor}' on:tap={next} />
             {/if}
-                <button text='Ferdig' class='ubtn {frontColor}' on:tap={leave} />
+        </stackLayout>
+        <stackLayout row='3'>
+            <button text='Ferdig' class='ubtn {frontColor}' on:tap={leave} android:stateListAnimator="@null" />
         </stackLayout>
     </gridLayout>
  </page>

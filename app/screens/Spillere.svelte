@@ -1,5 +1,5 @@
 <script>
-    import { navigate, showModal }  from 'svelte-native'
+    import { navigate, showModal}  from 'svelte-native'
 
     //Stores
     import {group} from '../stores.js'
@@ -7,7 +7,9 @@
     //Modals
     import reviewModal from '../pages/popups/reviewModal.svelte'
     import infoModal from '../pages/popups/infoModal.svelte'
-     //Opens review page
+
+
+    //Opens review page
     const review = () =>{
         showModal({
             page:reviewModal
@@ -48,7 +50,7 @@
     </gridLayout>
     <label row='1' class='h1 text-center white margin-under' text='Spillere' />
     <!--Add players-->
-    <stackLayout row='2' class='border margin-under'>
+    <gridLayout row='2' columns='*,70'class='border margin-under'>
         <textField 
             hint='Spillerens navn' 
             bind:text={player} 
@@ -58,8 +60,10 @@
             textFieldHintColor='white'
             textFieldBackgroundColor='white'
             class='h2 textfield'
+            col='0'
             />
-        </stackLayout>
+        <button on:tap={addPlayer} class='add white' text='+' col='1'/>
+    </gridLayout>
     <!--Each player-->
     <scrollView row='3'>
         <stackLayout>
@@ -76,6 +80,12 @@
 </gridLayout>
 
 <style>
+
+    .add{
+        border-radius: 50;
+        background-color: rgb(73, 174, 120);
+    }
+
     .border{
         border-radius: 50;
         border-width: 2;

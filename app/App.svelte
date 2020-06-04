@@ -1,6 +1,18 @@
 <script>
+    const atStart = () =>{
+		alert({
+	        title: "Viktig!",
+	        message: "Drikk med omhu! Det er ditt/deres ansvar å ta vare på hverandre, og passe på at dere ikke drikker for mye! ",
+			okButtonText: "Jeg forstår"
+            }).then(() => {
+		  
+		  console.log("Alert")})
+	}
+	atStart()
+
+	//import screens
     import Spillere from './screens/Spillere.svelte'
-    import Spill from './screens/Spill.svelte'
+	import Spill from './screens/Spill.svelte'
 
 	let selectedTab = 0
 	let active = false

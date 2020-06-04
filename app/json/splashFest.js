@@ -16,11 +16,6 @@ export const splashFestMild = {
         grad: 3,
         },
         {
-        regel: 'Bånski! Drikk alt du har i din aktive enhet',
-        navn : true,
-        grad: 4
-        },
-        {
         regel: 'Velg deg en partner. Dere skal begge twerke til en passende sang til publikum er fornøyd. Om du, eller din partner nekter, drikk begge 4 slurker',
         navn : true,
         grad: 2
@@ -71,11 +66,6 @@ export const splashFestMild = {
         grad: 2
         },
         {
-        regel: 'Tommel opp/ned! Taco eller Pizza? Taperne drikker',
-        navn : false,
-        grad: 1
-        },
-        {
         regel: 'Håper du er frisk og liker fisk! Om ikke, drikk!',
         navn : true,
         grad: 1
@@ -101,11 +91,6 @@ export const splashFestMild = {
         grad: 2
         },
         {
-        regel: 'Tommel opp/ned! Katt eller hund? Taperne drikker',
-        navn : false,
-        grad: 1
-        },
-        {
         regel: 'Eier du en windows pc? Ta en skål for bluescreen!',
         navn : true,
         grad: 1
@@ -114,11 +99,6 @@ export const splashFestMild = {
         regel: 'Eier du en Mac? Ta en skål for sauene!',
         navn : true,
         grad: 1
-        },
-        {
-        regel: 'Fossefall! Ikke slutt å drikk før den til høyre for deg har sluttet! Den eldste starter',
-        navn : false,
-        grad: 4
         },
         {
         regel: 'Ta en runde jeg har aldri! Drikk når det er noe du har gjort! La den yngste gå først!',
@@ -131,7 +111,18 @@ export const splashFestMild = {
         grad: 3
         },
         {
+        regel: 'Du og spilleren til venstre for deg er de siste menneskene på jorden! Skap litt liv! de andre spillerene dømmer om dere må drikke eller gi ut 2 slurker',
+        navn : true,
+        grad: 2
+        },
+        /* FØRSTEMANN */
+        {
         regel: 'Gris! Sistemann til å ta tommelen på bordet må ta 3 slurker!',
+        navn : false,
+        grad: 2
+        },
+        {
+        regel: 'GET LOW! From the window to the... Førstemann til å ta på veggen gir ut 3 slurker!',
         navn : false,
         grad: 2
         },
@@ -175,8 +166,29 @@ export const splashFestMild = {
         navn : true,
         grad: 3
         },
+        /* VANSKELIGE!*/ 
         {
         regel: 'Drikk opp hele enheten til en av dine medspillere. La dine medspillere bestemme hvem sin',
+        navn : true,
+        grad: 4
+        },
+        {
+        regel: 'Du blir beskyldt for å starte et jordskjelv. Drikk 5 slurker',
+        navn : true,
+        grad: 4
+        },
+        {
+        regel: 'Fossefall! Ikke slutt å drikk før den til høyre for deg har sluttet! Den eldste starter',
+        navn : false,
+        grad: 4
+        },
+        {
+        regel: 'Bånski! Drikk alt du har i din aktive enhet',
+        navn : true,
+        grad: 4
+        },
+        {
+        regel: 'Ligg rett ut på ryggen med hode nede på gulvet og ta 5 slurker',
         navn : true,
         grad: 4
         },
@@ -186,10 +198,57 @@ export const splashFestMild = {
         grad: 2
         },
         {
+        regel: 'Første til å si hovedstaden til Isreal kan gi ut 2 slurker!',
+        navn: true,
+        grad: 2
+        },
+        {
+        regel: 'Balanser noe på hodet i 30 sek, klarer du det kan du dele ut en slurk og hvis ikke så må du ta selv',
+        navn: true,
+        grad: 1
+        },
+        {
+        regel: 'Ta en slurk for hver hengekøye tur de har hatt',
+        navn: false,
+        grad: 1
+        },
+        {
+        regel: 'Den som leser dette kan ta en slurk!',
+        navn: false,
+        grad: 1
+        },
+        {
+        regel: 'Den som leser dette kan gi bort en slurk!',
+        navn: false,
+        grad: 1
+        },
+        {
         regel: 'Ta en slurk for hver piercing spilleren til venstre for deg har',
         navn: true,
         grad: 1
         },
+        /* MIMELEK*/ 
+        {
+        regel: 'Mimelek! Du må etterligne et dyr, og den første som gjetter riktig kan gi vekk 2 slurker',
+        navn: true,
+        grad: 1
+        },
+        {
+        regel: 'Mimelek! Du må etterligne et yrke, og den første som gjetter riktig kan gi vekk 2 slurker',
+        navn: true,
+        grad: 1
+        },
+        {
+        regel: 'Mimelek! Du må etterligne en medspiller, og den første som gjetter riktig kan gi vekk 2 slurker',
+        navn: true,
+        grad: 1
+        },
+        {
+        regel: 'Mimelek! Du må etterligne en aktivitet, og den første som gjetter riktig kan gi vekk 2 slurker',
+        navn: true,
+        grad: 1
+        },
+        /*Kategori */
         {
         regel: 'Kategori! Velg en kategori (feks bilmerker), den som ikke kommer på fler, eller sier noe som er sagt, drikker!',
         navn: false,
@@ -210,6 +269,7 @@ export const splashFestMild = {
         navn: false,
         grad: 1
         },
+        /* REGEL*/ 
         {
         regel: 'Regel! Du har fått æren av å utnevne en regel, som skal vare ut lekens løp! Den som bryter den må drikke (den MÅ berøre alle likt, feks: Kun lov å drikke med venstre hånd)',
         navn: true,
@@ -230,6 +290,7 @@ export const splashFestMild = {
         navn: true,
         grad: 1
         }, 
+        /* TOMMEL OPP/NED*/ 
         {
         regel: 'Tommel opp/ned! Bil eller motorsykkel? Taperne drikker',
         navn: false,
@@ -262,7 +323,17 @@ export const splashFestMild = {
         },
         {
         regel: 'Tommel opp/ned! Smultring eller Donuts? vinnerne drikker',
-        navn: true,
+        navn: false,
+        grad: 1
+        },
+        {
+        regel: 'Tommel opp/ned! Taco eller Pizza? Taperne drikker',
+        navn : false,
+        grad: 1
+        },
+        {
+        regel: 'Tommel opp/ned! Katt eller hund? Taperne drikker',
+        navn : false,
         grad: 1
         },
     ]

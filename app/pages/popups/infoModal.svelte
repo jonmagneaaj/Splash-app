@@ -1,12 +1,12 @@
 <script>
     import { closeModal, navigate } from 'svelte-native'
 
-    let hjelpere = ['Peder W.','Stine Marie V.','Kristina L.','Emma Elise L.','Christina R.','Iselin R.','Gløer L.','Simon M.']
+    let hjelpere = ['Peder W.','Stine Marie V.','Kristina L.','Emma Elise L.','Christina R.','Iselin R.','Gløer L.','Simon M.', 'Julie H.', 'Geir Magnus F. A.', 'Morten S.','Robert E.']
 
 </script>
 
 <stackLayout class='main whiteb'>
-    <gridLayout rows='20,30,60,60,*,50' class='box'>
+    <gridLayout rows='20,auto,60,60,*,50' class='box'>
         <stackLayout row='0'>
 		</stackLayout>
         <!--Title-->
@@ -36,7 +36,7 @@
 
 <style>
 	.main{
-		width: 300;
+		width: 320;
 		height: 500;
 		border-radius: 20;
     }

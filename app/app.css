@@ -27,23 +27,23 @@ The imported CSS rules must precede all other types of rules.
  /*TEXT STYLES*/
 
 h1, .h1{
-    font-size: 25;
+    font-size: 22;
     font-family: 'IBM Plex Mono', monospace;
     font-weight: bold;
 }
 
 h2, .h2{
-    font-size: 20;
+    font-size: 18;
     font-family: 'IBM Plex Mono', monospace;
 }
 
 h3, .h3{
-    font-size: 13;
+    font-size: 12;
     font-family: 'IBM Plex Mono', monospace;
 }
 
 p, .p{
-    font-size: 12;
+    font-size: 11;
     font-family: 'IBM Plex Mono', monospace;
 }
 
@@ -78,6 +78,9 @@ p, .p{
 /*BUTTONS*/
 .ubtn{
     background-color: transparent;
+    height: 50;
+    width:125;
+    box-shadow: none;
 }
 
 .btn{
