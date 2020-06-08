@@ -203,12 +203,14 @@
                     <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='GRATULERER!' />
                 {:else}
                     <!--Player name if true-->
-                    {#if srules[i].navn==true&&srules[i].grad==1||srules[i].grad==2||srules[i].grad==3||srules[i].grad==4}
+                    {#if srules[i].navn==false}
+                        <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='ALLE' />
+                    {:else if srules[i].navn==true&&srules[i].grad==1||srules[i].grad==2||srules[i].grad==3||srules[i].grad==4}
                         <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='{players[p]}' />
                     {:else if srules[i].grad==0}
                         <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='{gamePlayers[gpl]}' />
                     {:else}
-                        <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='ALLE' />
+                         <label class='h1 bold {frontColor2}' textWrap='true' textAlignment='center' text='ALLE' />
                     {/if}
                 {/if}
                 <!--Question that comes up-->

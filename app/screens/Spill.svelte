@@ -37,7 +37,7 @@
     const Drikketuren = () =>{
         $color = 'green'
         $bgcolor = 'greenb'
-        $text = 'Gå igjennom påstandene vist på skjermen, og gi ut passende straff til den påstanden passer best. Gå til neste påstand ved å trykke på neste!.  Mobilens eier starter, mens den som mottar forsetter leken, osv.'
+        $text = 'Gå igjennom påstandene vist på skjermen, og gi ut passende straff til den påstanden passer best. Gå til neste påstand ved å trykke på neste!.  Mobilens eier starter, mens den som mottar forsetter leken. Denne leken er også kjent som "snus leken". Om dere vil så kan dere og kaste en snusboks videre.'
         $title = 'Drikketuren'
         $grad = 2
         $gameChoice = Game1
